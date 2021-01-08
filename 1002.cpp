@@ -29,20 +29,28 @@ int main(void){
 
     for(int i = 0; i < caseNum; i++){
         cin >> x1 >> y1 >> r1 >> x2 >> y2 >> r2;
-        int distance = sqrt(pow(x2-x1, 2) + pow(y2-y1, 2));
-
-        if(distance < r1 || distance < r2 || distance  > r1 + r2)
-            cases[i] = 0;
-        else if(distance == r1 + r2 || distance == abs(r1 - r2))
-            cases[i] = 1;
-        else
-            cases[i] = 2;
+        int dist = pow(x2-x1, 2) + pow(y2-y1, 2);
+        int powAddNum = (r1 + r2) * (r1 + r2);
+        int powSubNum = (abs(r1 - r2)) * (abs(r1 - r2));
         
+
+        if(dist < powAddNum && dist > powSubNum)
+            cout << 2;
+        else if(dist == powAddNum || (dist == powSubNum && dist != 0))
+            cout << 1;
+        else if(dist < powSubNum || dist > powAddNum)
+            cout << 0;
+        else if(dist == 0){
+            if(r1 == r2)
+                cout << -1;
+            else
+                cout << 0;
+            
+        }
+        cout << endl;
+
     }
-    
-    for(int i = 0; i < caseNum; i++){
-        cout << cases[i] << endl;
-    }
+ 
 
 
     return 0;
