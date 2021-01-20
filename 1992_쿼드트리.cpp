@@ -20,9 +20,7 @@ string compressed(int y, int x, int size){
         return string("(") + compressed(y, x, half) + compressed(y, x+half, half)
             + compressed(y+half, x, half) + compressed(y+half, x+half, half)
             + string(")");
-
     }
-
 }
 int main(){
 
