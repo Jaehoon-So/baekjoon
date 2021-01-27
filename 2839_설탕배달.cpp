@@ -17,9 +17,7 @@ using namespace std;
 #define MAX 5001
 int D[MAX][MAX];
 int smallest = 0;
-int findNumber(int i, int j){ // i는 3kg짜리의 봉지, j는 5kg짜리 봉지
 
-}
 int main(){
     int n;
     cin >> n;
