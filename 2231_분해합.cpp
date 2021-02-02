@@ -9,7 +9,6 @@ int constructor(int n){
         ans += num;
         n = n / 10;
     }
-    printf("%d\n", ans);
     return ans;
 }
 
@@ -25,9 +24,10 @@ int main(){
         if(cons == n)
             break;
     }
-    if(cons == n) cout << i;
+    if(cons == n) cout << i; 
+    // 처음에 i 가 아닌 cons를 출력하는 실수를 함 cons == n 일때 탈출하는데
+    // 당연히 올바른 값이 아닌 n이 출력됨.
     else cout << 0 << '\n';
 
-    
     return 0;
 }
