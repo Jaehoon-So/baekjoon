@@ -2,7 +2,7 @@
 
 using namespace std;
 int maxNum = -1;
-int index;
+int maxIndex;
 int numArr[9];
 
 int main(){
@@ -13,11 +13,11 @@ int main(){
         cin >> numArr[i];
         if(numArr[i] > maxNum){
             maxNum = numArr[i];
-            index = i;
+            maxIndex = i;
         }
     }
     cout << maxNum << '\n';
-    cout << index + 1 << '\n';
+    cout << maxIndex + 1 << '\n';
 
     return 0;
 }
