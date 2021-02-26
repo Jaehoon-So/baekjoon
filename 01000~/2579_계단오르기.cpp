@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-int stairScore[301];
 int cache[301];
 
 int main()
