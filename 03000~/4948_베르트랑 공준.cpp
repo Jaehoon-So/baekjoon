@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+bool isPrime[246913];
+
 
 int main(){
     cout.sync_with_stdio(0);
@@ -9,24 +11,23 @@ int main(){
     int n;
     cin >> n;
     while(n != 0){
-        // 예외 사례: n이 1일때
-        if(n == 1) {
-            cout << 1 << '\n';
-        }
         primeNum = 0;
-        for(int i = n; i <= 2*n; i++){
-            bool isPrime = true;
-            for(int j = 2; j <= sqrt(i); j++){
-                if(i % j == 0){
-                    isPrime = false;
-                    break;
+        memset(isPrime, true, sizeof(isPrime));
+
+        for(int i = 2; i <= sqrt(2*n); i++){
+            if(isPrime[i]){
+                for(int j = i+i; j <= 2*n; j += i){
+                    if(isPrime[j]){
+                        isPrime[j] = false;
+                    }
                 }
             }
-            if(isPrime){
-                primeNum++;
-            }
+        }
+        for(int i = n + 1; i <= 2*n; i++){
+            if(isPrime[i]) primeNum++;
         }
         cout << primeNum << '\n';
+
         cin >> n;
     }
     return 0;
